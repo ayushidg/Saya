@@ -66,6 +66,12 @@ def outdoorBehavior():
   
 
 # if the user's tier is greater than or equal to 3, then implement L B H
+#based on what Saya's algorithm detects, the three variables will either become true or false which will trigger the respective algorithms                      
+leaks = False
+behavior = False
+hotWater = False                    
+                      
+                      
 if tier == 1:
     print("You are efficient with your water usage.")
 
