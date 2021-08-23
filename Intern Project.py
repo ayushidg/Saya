@@ -1,12 +1,7 @@
 # how much water the customer uses per billing period
 
 
-monthlyBill = 0 #total gallons used by user divided by 1,000 and multiplied by the price per gallon
-#function for finding monthly bill
-def monthlyBillCalculator(monthlyBill, totalUsage):
-    bill = (totalUsage / 1,000) * 0.006
-    monthlyBill = monthlyBill + bill
-    return monthlyBill
+monthlyBill = 0 #this value will be provided by Saya's algorithm
     
 
 
@@ -24,6 +19,9 @@ def tier(totalUsage, monthlyBill):
         return 3
     else:
         return 4
+    
+    
+    
 
 #based on what tips the user selects, the gallons they save will be added to the variable below and displayed later
 gallonsSaved = 0 #total gallons saved from water saving tips
@@ -33,7 +31,7 @@ indoorSteps = []
 
 
 #if the user choose gray water as their problem area then use the function below
-
+"""
 def grayWater():
     #have the user indicate which actions they are going to take 
     print("Please indicate which steps you will take to reduce your gray water usage.")
@@ -45,16 +43,26 @@ def grayWater():
     #based on whichever steps they would like to take, a variable will hold the number of gallons they will save by taking those steps
     for item in indoorSteps:
         if stepsTaken != "Next":
-            
+ """         
 
- #this funcion is for reccomending steps for indoor behavior if the user selects indoor behavior as their problem area         
+#dictionary holding the gallons saved corresponding with the tip number so it can be added together later
+gallonsSaved = [1:1.6, 2:2, 3:5, ]
+
+
+
+#this funcion is for reccomending steps for indoor behavior if the user selects indoor behavior as their problem area         
 def indoorBehavior():
-    areaFocus = input("What system would you like tips for?"+\n+"1. Gray Water" #add other options when known )
-    if location == "gray water":
-        print("Based on your usage data, your gray water system is consuming lots of water." + \n +  "To lower your tier below 2, please take some of the following steps:" + \n + "tips for indoor usage, formatting done later")
     
- 
+    print("Based on your water usage data, you should focus on saving water indoors. Please select which water saving tips you think you will try:")
+    #we are planning on displaying each tip for water saving in the GUI and having the user choose which tips they want to go through with. This way, the total amount of gallons saved can be calculated and shown.
+    
+    print("1. Do not use the toilet as a wastebasket. /n 2. Run the dishwasher ONLY when full. \n 3. Turn water off when not in use (dishwashing, toothbrushing, showering)\n 4.
+          
+          
+          
+          
 #this is outdoor behavior, same as indoor ^
+          
 def outdoorBehavior():
     #tips for outdoor usage, same as above function
     
