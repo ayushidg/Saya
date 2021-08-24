@@ -26,46 +26,84 @@ def tier(totalUsage, monthlyBill):
 #based on what tips the user selects, the gallons they save will be added to the variable below and displayed later
 gallonsSaved = 0 #total gallons saved from water saving tips
 
-#dictionary to hold steps and how many gallons they will save (this may be removed in future, its just some internal shtuff)
-indoorSteps = []
 
 
-#if the user choose gray water as their problem area then use the function below
-"""
-def grayWater():
-    #have the user indicate which actions they are going to take 
-    print("Please indicate which steps you will take to reduce your gray water usage.")
+#dictionary holding gallons saved based on behavior changes
+savedIndoorBehavior = [1:2, 2:13, 3:1.6, 4:5, 5:15, 6:18]
+
+
+#dictionary holding gallons saved based on internal system changes
+savedIndoorHardware = [1:8, 2:10, 3:14, 4:15, 5:30]
+
+
+#this funcion is for reccomending steps for indoor behavior if indoor behavior is the problem area         
+def indoorBehavior(numbers):
     
-    #print out the different steps that the yser can take to reduce their water usage
-    print("Steps printed here.")
-    
-    stepsTaken = input("Please enter the number corresponding to the step you wish to take. If you do not want to try any of these tips, type Next.")
-    #based on whichever steps they would like to take, a variable will hold the number of gallons they will save by taking those steps
-    for item in indoorSteps:
-        if stepsTaken != "Next":
- """         
-
-#dictionary holding the gallons saved corresponding with the tip number so it can be added together later
-gallonsSaved = [1:1.6, 2:2, 3:5, ]
-
-
-
-#this funcion is for reccomending steps for indoor behavior if the user selects indoor behavior as their problem area         
-def indoorBehavior():
-    
-    print("Based on your water usage data, you should focus on saving water indoors. Please select which water saving tips you think you will try:")
+    print("Based on your water usage data, you should focus on saving water indoors.")
     #we are planning on displaying each tip for water saving in the GUI and having the user choose which tips they want to go through with. This way, the total amount of gallons saved can be calculated and shown.
     
-    print("1. Do not use the toilet as a wastebasket. /n 2. Run the dishwasher ONLY when full. \n 3. Turn water off when not in use (dishwashing, toothbrushing, showering)\n 4.
+    
+    choice = input("Would you like behavior related tips or hardware related tips?")
+    if choice == "behavior" or choice == "Behavior": 
+        print("Here are some behavior related tips:")
+        print(\n)
+        
+        print("1. Run the dishwasher only when full. \n 2. Turn water off when not in use (shower, brushing teeth, dishes) \n 3. Do not use the toilet as a wastebasket \n 4. Shorten shower times by 2 minutes \n 5. Turn the washing machine on only when full. \n 6. Fill the bathtub half full while bathing")
+        
+        print(\n)
+        while True:
+            numbers = input("Enter the number corresponding to the action you will take to reduce your water usage. When you are finished, enter None")
+        #while the user is still entering numbers, add the corresponding gallons saved to the gallonsSaved variable
+            gallonSaved = gallonSaved + savedBehavior[int(numbers) - 1]
+            if numbers == "None"or numbers == "none":
+                break
+     elif choice == "Hardware" or choice == "hardware":
+        print("Here are tips on how to improve your water system:")
+        print(\n)
+        
+        print("1. Replace old, ineffiecient toilets with newer, better ones. \n 2. Purchase a new front loading clothes washer \n 3. Install aerators with flow restrictors on kitchen/bathroo, faucets \n 4. Fix a leaky faucet \n 5. Fix a leaky toilet")
+        
+        print(\n)
+        while True:
+            numbers = input("Enter the number corresponding to the action you will take to reduce your water usage. When you are finished, enter None")
+        #while the user is still entering numbers, add the corresponding gallons saved to the gallonsSaved variable
+            gallonSaved = gallonSaved + savedBehavior[int(numbers) - 1]
+            if numbers == "None"or numbers == "none":
+                break
+      else:
+        print("Invalid input, please try again.")
+       
+        
           
-          
-          
-          
+   
+   
+ #dictionary holding gallons saved based on behavior changes         
+savedOutdoorBehavior = [1:20, 2:20, 3:22, 4:25, 5:100] 
+#dictionary holding gallons saved based on internal system changes
+savedOutdoorHardware = [1:5, 2:]
+    
+    
+    
+    
 #this is outdoor behavior, same as indoor ^
           
 def outdoorBehavior():
-    #tips for outdoor usage, same as above function
+    print("Based on your water usage data, you should focus on saving water outdors.")
+    print(\n)
     
+    choice = input("Would you like behavior related tips or hardware related tips?")
+       if choice == "behavior" or choice == "Behavior": 
+            print("Here are some behavior related tips:")
+            print(\n)
+            print("1. Water your yard before 6 am or after 8 pm to reduce evaporation \n 2. Adjust sprinklers to reduce spray on sidewalks or other areas that don't need water \n 3. Use a broom instead of a hose to clean off driveways or other surfaces \n 4. Add mulch (2"-3") around trees and plants (1,000 sq. ft.) \n 5. Reduce irrigation time by 2 minutes or eliminate one irrigation cycle per week")
+            
+            
+            
+          
+       elif choice == "Hardware" or choice == "hardware":
+            print("Here are tips on how to improve your water system:")
+            print(\n)
+            print("1. Install a pool cover to reduce evaporation \n 2. Repair pipe leak or broken sprinkler head \n 3. Install water-efficient drip 
     
     
     
@@ -99,6 +137,7 @@ leaks == False
 #if there is a sudden spark in water usage, then leaks will become True, this data will be supplied to us via Saya
 if leak == True:
     #code for leaks
+
 
 behavior == False
 #if the user is using too much water, then reccomend good behavior. This can be determined by the tier ranking of users
