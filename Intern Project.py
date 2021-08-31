@@ -1,7 +1,44 @@
 # how much water the customer uses per billing period
 
+#billing formula
 
-monthlyBill = 0 #this value will be provided by Saya's algorithm
+
+
+    
+#size of the water service connection and the cost
+waterConnection = [ "inch" : "cost", 0.625 : 30.52, 1:46.63, 1/2 : 86.90, 2: 135.22, 3:247.98, 4:409.06, 6:811.76, 8:1939.23, 10:3066.89]
+
+#amount of water used
+
+    #number of residents
+ singleFamily = ["tier" : "cost", 1 : 2.68, 2 : 2.75 , 3 : 2.85]
+ multiFamily = ["tier" : "cost" , 1: 2.67, 2 : 2.71, 3 : 2.76]
+    
+    #Agriculture
+agriculture = 2.73
+    
+    #commercial 
+commercial = 2.74
+    
+    #construction
+construction = 2.73
+    
+    #ask the user what size their water service is
+connection = input("What size water service connection do you have?)
+     #ask for number of residents
+residents = input("How many residents in your home?")
+     #ask if they use water for agricultural, commercial or construction use
+ 
+def billingFormula(connection, residents, extras):
+                      
+    
+        
+                       
+                      
+
+
+
+monthlyBill = 0 
     
 
 
@@ -42,7 +79,17 @@ def indoorBehavior(numbers):
     print("Based on your water usage data, you should focus on saving water indoors.")
     #we are planning on displaying each tip for water saving in the GUI and having the user choose which tips they want to go through with. This way, the total amount of gallons saved can be calculated and shown.
     
+    print(\n)
+    goal = input("How many gallons would you like to save?")
     
+    #algorithm for giving tips that can satisfy the goal 
+    
+    #based on the goal amount,  
+    
+    
+    
+    
+    """
     choice = input("Would you like behavior related tips or hardware related tips?")
     if choice == "behavior" or choice == "Behavior": 
         print("Here are some behavior related tips:")
@@ -72,7 +119,7 @@ def indoorBehavior(numbers):
                 break
       else:
         print("Invalid input, please try again.")
-       
+      """ 
         
           
    
@@ -91,6 +138,11 @@ def outdoorBehavior():
     print("Based on your water usage data, you should focus on saving water outdors.")
     print(\n)
     
+    goal = input("How many gallons would you like to save?")
+    
+    
+    
+    """
     choice = input("Would you like behavior related tips or hardware related tips?")
        if choice == "behavior" or choice == "Behavior": 
             print("Here are some behavior related tips:")
@@ -103,8 +155,8 @@ def outdoorBehavior():
        elif choice == "Hardware" or choice == "hardware":
             print("Here are tips on how to improve your water system:")
             print(\n)
-            print("1. Install a pool cover to reduce evaporation \n 2. Repair pipe leak or broken sprinkler head \n 3. Install water-efficient drip 
-    
+           print("1. Install a pool cover to reduce evaporation \n 2. Repair pipe leak or broken sprinkler head \n 3. Install water-efficient drip 
+   """ 
     
     
     
@@ -117,7 +169,9 @@ leaks = False
 behavior = False
 hotWater = False                    
                       
-                      
+
+    
+    
 if tier == 1:
     print("You are efficient with your water usage.")
 
