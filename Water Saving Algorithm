@@ -1,0 +1,21 @@
+
+
+
+
+    
+
+#have the user enter how many gallons they would like to save 
+gallons = input("How many gallons of water do you aim to save?")
+
+#have the user specify where they want to save water
+area = input("Would you like to focus on saving water indoors or outdoors?")
+
+def saveGallonsIndoor(gallons):
+#this variable holds the gallons the user will save so far while selecting options
+gallonsSaved = 0 
+
+#if the gallons the user wants to save are less than 10, then only shpw options that will save 10 gallons or less
+    if gallons <= 10:
+        
+            
+        
